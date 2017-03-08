@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:jsf="http://xmlns.jcp.org/jsf" >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Launch Fastlink</title>
+<script>
+window.onload = function()
+{ document.getElementById('form1').submit(); };
+</script>
+</head>
+<body >
+<form action="https://node.developer.yodlee.com/authenticate/restserver/" method="POST"
+id ="form1">
+	<input type="hidden" jsf:id="app" name="app" value="#{allFunctions.app}" />
+	<br></br>
+	<input type="hidden" jsf:id="rsession" name="rsession" value="#{allFunctions.rssesion}" />
+	<br></br>
+	<input type="hidden" jsf:id="token" name="token" value="#{allFunctions.token}" />
+   <br></br>
+   <input type="hidden" jsf:id="redirectReq" name="redirectReq" value="true" />
+	<br></br>
+	<input type="hidden" jsf:id="extraParams" name="extraParams" value="callback=http://localhost:8080/Genivity/faces/Userdetails.jsp" />
+    <br></br>
+	
+</form>
+</body>
+</html>

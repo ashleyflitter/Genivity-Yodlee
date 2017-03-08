@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:t="http://myfaces.apache.org.tomahawk"
+	xmlns:p="http://primefaces.org/ui"> 
+	<link rel="stylesheet" href="CSS/StyleSheet.css" />
+<link rel="stylesheet" href="CSS/buttons.css" />
+<h:head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<script>
+function ext() {
+    this.cfg.seriesDefaults.rendererOptions.dataLabelFormatString = '%.4s%%';
+    this.cfg.seriesDefaults.rendererOptions.dataLabelThreshold = 0;
+}
+</script>
+	<title>Reports</title>
+	</h:head>
+<h:body>
+<div align="center">
+<img src="CSS/Genivity-logo-horizontal-01.png" alt="HTML5 Icon" style="width:500px;height:200px;"/>
+</div>
+<h:form>
+<div align="center">
+	<br/> 
+<br/> 
+<br/> 
+<div align="center">
+	<h:panelGrid columns="5">
+		<h:commandButton value="Add/Modify Accounts" action="#{login.getProvidersToken}" styleClass="button"/>
+		<h:outputText value=" "></h:outputText>
+		<h:commandButton value="Transactions" action="#{login.getTransactions}" styleClass="button"/>
+		<h:outputText value=" "></h:outputText>
+		<h:commandButton value="Reports" action="#{login.generateChart}" styleClass="button"/>
+        </h:panelGrid>
+        <br/> 
+        <br/> 
+        <br/> 
+     <p:panel>
+  <p:pieChart  rendered="#{login.renderChart}"    
+  value="#{allFunctions.pieModel1}" style="width:1000px;height:500px" legendPosition="s" legendCols="4" legendRows="4">
+  </p:pieChart>
+  </p:panel>  
+   </div>
+    	
+
+</div>
+</h:form>
+</h:body></html>

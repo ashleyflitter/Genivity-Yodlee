@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+    version="2.2">
+    	<managed-bean>
+		<managed-bean-name>transactions</managed-bean-name>
+		<managed-bean-class>Transactions</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>customClass</managed-bean-name>
+		<managed-bean-class>CustomClass</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>login</managed-bean-name>
+		<managed-bean-class>Login</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>allFunctions</property-name>
+			<property-class>AllFunctions</property-class>
+			<value>#{allFunctions}</value>
+		</managed-property>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>register</managed-bean-name>
+		<managed-bean-class>Register</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>allFunctions</property-name>
+			<property-class>AllFunctions</property-class>
+			<value>#{allFunctions}</value>
+		</managed-property>
+	</managed-bean>
+
+	<managed-bean>
+		<managed-bean-name>allFunctions</managed-bean-name>
+		<managed-bean-class>AllFunctions</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>customClass</property-name>
+			<property-class>CustomClass</property-class>
+			<value>#{customClass}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>transactions</property-name>
+			<property-class>Transactions</property-class>
+			<value>#{transactions}</value>
+		</managed-property>
+	</managed-bean>
+	
+	<navigation-rule>
+		<from-view-id>/Login.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>SUCCESS</from-outcome>
+			<to-view-id>/Userdetails.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/RegisterUser.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>SUCCESS</from-outcome>
+			<to-view-id>/Userdetails.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	 <navigation-rule>
+		<from-view-id>/Userdetails.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>SUCCESS</from-outcome>
+			<to-view-id>/AddAccounts.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule> 
+	<navigation-rule>
+		<from-view-id>/Userdetails.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>1</from-outcome>
+			<to-view-id>/transactions.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/Userdetails.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>2</from-outcome>
+			<to-view-id>/Reports.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+
+</faces-config>
